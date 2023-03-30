@@ -6,61 +6,63 @@ let calais;
 let itinerary;
 
 beforeEach(() => {
-    dover = {
-        addShip: jest.fn(),
-        removeShip: jest.fn(),
-        name: 'Dover',
-        ships: []
-    };
+  dover = {
+    addShip: jest.fn(),
+    removeShip: jest.fn(),
+    name: 'Dover',
+    ships: []
+  };
 
-    calais = {
-        addShip: jest.fn(),
-        removeShip: jest.fn(),
-        name: 'Calais',
-        ships: []
-    };
+  calais = {
+    addShip: jest.fn(),
+    removeShip: jest.fn(),
+    name: 'Calais',
+    ships: []
+  };
 
-    itinerary = {
-        ports: [dover, calais]
-    };
+  itinerary = {
+    ports: [dover, calais]
+  };
 
-    ship = new Ship(itinerary);
+  ship = new Ship(itinerary);
 });
 
 describe('Ship', () => {
-    test('can be instantiated', () => {
-        expect(ship).toBeInstanceOf(Object);
-    });
+  test('can be instantiated', () => {
+    expect(ship).toBeInstanceOf(Object);
+  });
 
-    test('has a starting port', () => {
-        expect(ship.currentPort).toBe(dover);
-    });
+  test('has a starting port', () => {
+    expect(ship.currentPort).toBe(dover);
+  });
 
+  test('gets added to port on instantiation', () => {
+    expect(dover.addShip).toHaveBeenCalledWith(ship);
+  });
+
+  describe('setSail', () => {
     test('can set sail', () => {
-        ship.setSail();
+      ship.setSail();
 
-        expect(ship.currentPort).toBeFalsy();
-        expect(dover.removeShip).toHaveBeenCalledWith(ship);
-    });
-
-    test('gets added to port on instantiation', () => {
-        expect(dover.addShip).toHaveBeenCalledWith(ship);
+      expect(ship.currentPort).toBeFalsy();
+      expect(dover.removeShip).toHaveBeenCalledWith(ship);
     });
 
     test('can\'t sail further than its itinerary', () => {
-        ship.setSail();
-        ship.dock();
+      ship.setSail();
+      ship.dock();
 
-        expect(() => ship.setSail()).toThrowError('End of itinerary reached');
+      expect(() => ship.setSail()).toThrowError('End of itinerary reached');
     });
-});
+  });
 
-describe('dock', () => {
+  describe('dock', () => {
     test('can dock at a different port', () => {
-        ship.setSail();
-        ship.dock();
+      ship.setSail();
+      ship.dock();
 
-        expect(ship.currentPort).toBe(calais);
-        expect(calais.addShip).toHaveBeenCalledWith(ship);
+      expect(ship.currentPort).toBe(calais);
+      expect(calais.addShip).toHaveBeenCalledWith(ship);
     });
+  });
 });

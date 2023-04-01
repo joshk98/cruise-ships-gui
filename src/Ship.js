@@ -26,6 +26,10 @@ class Ship {
     this.currentPort = itinerary.ports[previousPortIndex + 1];
     this.currentPort.addShip(this);
   }
-};
+}
 
-module.exports = Ship;
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Ship;
+} else {
+  window.Port = Ship;
+}

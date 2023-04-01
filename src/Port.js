@@ -16,6 +16,10 @@ class Port {
 
     ships.splice(shipIndex, 1);
   }
-};
+}
 
-module.exports = Port;
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Port;
+} else {
+  window.Port = Port;
+};

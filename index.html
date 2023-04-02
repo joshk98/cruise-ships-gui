@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Cruise Ships</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="viewport">
-    <div id ="ports">
+    <div id="ports">
     </div>
   </div>
   <script src="src/controller.js"></script>
-  <script src="src/port.js"></script>
-  <script src="src/itinerary.js"></script>
+  <script src="src/Port.js"></script>
+  <script src="src/Itinerary.js"></script>
   <script>
     const controller = new Controller();
     const itinerary = new Itinerary([
@@ -24,6 +24,7 @@
       new Port('San Juan'),
       new Port('Amber Cove')
     ])
+    controller.renderPorts(itinerary.ports)
   </script>
 </body>
 </html>

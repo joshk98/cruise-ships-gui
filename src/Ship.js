@@ -29,7 +29,7 @@
       const currentPortIndex = itinerary.ports.indexOf(this.currentPort);
       this.nextPort = itinerary.ports[currentPortIndex + 1];
       if (nextPortIndex === (itinerary.ports.length - 1)) {
-        this.nextPort = "Endless possibilites!"
+        this.nextPort = 'End of itinerary reached'
       }
     }
   }

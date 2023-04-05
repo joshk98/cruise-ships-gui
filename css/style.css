@@ -72,7 +72,6 @@ body {
   font-family: 'VT323', monospace;
   position: absolute;
   top: 0;
-  right: 0;
-  text-align: right;
+  left: 0;
   padding: 10px;
 }

@@ -59,9 +59,9 @@
         if (shipLeft === (nextPortElement.offsetLeft - 32)) {
           ship.setSail();
           ship.dock();
-          clearInterval(sailInterval);
           this.renderMessage(`Arrived at ${ship.currentPort.name}`);
           this.headsUp();
+          clearInterval(sailInterval);
         }
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
@@ -79,29 +79,10 @@
     }
 
     headsUp() {
-      const currentPortElement = document.createElement('p');
-      currentPortElement.id = 'currentPortDescription';
-      currentPortElement.innerHTML = `Current Port: ${this.ship.currentPort.name}`;
-      const currentPort = document.querySelector('#currentPort');
-      const currentPortDescription = document.querySelector('#currentPortDescription');
-      if (currentPortDescription) {
-        currentPort.removeChild(currentPortDescription);
-      }
-      currentPort.appendChild(currentPortElement);
-
-      const nextPortElement = document.createElement('p');
-      nextPortElement.id = 'nextPortDescription';
-      if (!this.ship.nextPort.name) {
-        nextPortElement.innerHTML = 'Next Port: End of the line!';
-      } else {
-      nextPortElement.innerHTML = `Next Port: ${this.ship.nextPort.name}`;
-      }
-      const nextPort = document.querySelector('#nextPort');
-      const nextPortDescription = document.querySelector('#nextPortDescription');
-      if (nextPortDescription) {
-        nextPort.removeChild(nextPortDescription);
-      }
-      nextPort.appendChild(nextPortElement);
+      const headsUp = document.querySelector('#headsUp');
+      const currentPort = this.ship.currentPort.name;
+      const nextPort = this.ship.nextPort.name || 'End of the line!';
+      headsUp.innerHTML = `Current Port: ${currentPort}<br>Next Port: ${nextPort}`;
     }
   }
 

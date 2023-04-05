@@ -41,6 +41,7 @@
       const shipElement = document.querySelector('#ship');
       shipElement.style.top = `${portElement.offsetTop + 32}px`;
       shipElement.style.left = `${portElement.offsetLeft - 32}px`;
+      this.headsUp();
     }
 
     setSail() {
@@ -59,7 +60,8 @@
           ship.setSail();
           ship.dock();
           clearInterval(sailInterval);
-          return this.renderMessage(`Arrived at ${ship.currentPort.name}`);
+          this.renderMessage(`Arrived at ${ship.currentPort.name}`);
+          this.headsUp();
         }
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
@@ -74,6 +76,32 @@
       setTimeout(() => {
         viewport.removeChild(messageElement);
       }, 2000);
+    }
+
+    headsUp() {
+      const currentPortElement = document.createElement('p');
+      currentPortElement.id = 'currentPortDescription';
+      currentPortElement.innerHTML = `Current Port: ${this.ship.currentPort.name}`;
+      const currentPort = document.querySelector('#currentPort');
+      const currentPortDescription = document.querySelector('#currentPortDescription');
+      if (currentPortDescription) {
+        currentPort.removeChild(currentPortDescription);
+      }
+      currentPort.appendChild(currentPortElement);
+
+      const nextPortElement = document.createElement('p');
+      nextPortElement.id = 'nextPortDescription';
+      if (!this.ship.nextPort.name) {
+        nextPortElement.innerHTML = 'Next Port: End of the line!';
+      } else {
+      nextPortElement.innerHTML = `Next Port: ${this.ship.nextPort.name}`;
+      }
+      const nextPort = document.querySelector('#nextPort');
+      const nextPortDescription = document.querySelector('#nextPortDescription');
+      if (nextPortDescription) {
+        nextPort.removeChild(nextPortDescription);
+      }
+      nextPort.appendChild(nextPortElement);
     }
   }
 

@@ -3,6 +3,7 @@
     constructor(itinerary) {
       this.itinerary = itinerary;
       this.currentPort = itinerary.ports[0];
+      this.nextPort = itinerary.ports[1];
       this.previousPort = null;
       this.currentPort.addShip(this);
     }
@@ -23,6 +24,13 @@
       const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
       this.currentPort = itinerary.ports[previousPortIndex + 1];
       this.currentPort.addShip(this);
+      
+      const nextPortIndex = itinerary.ports.indexOf(this.nextPort);
+      const currentPortIndex = itinerary.ports.indexOf(this.currentPort);
+      this.nextPort = itinerary.ports[currentPortIndex + 1];
+      if (nextPortIndex === (itinerary.ports.length - 1)) {
+        this.nextPort = "Endless possibilites!"
+      }
     }
   }
 

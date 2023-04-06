@@ -12,22 +12,26 @@
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"></head>
 <body>
   <div id="headsUp"></div>
+  <form id="addPortForm">
+    <fieldset>
+      <label for="portNameInput">Add Port</label>
+      <br>
+      <input id="portNameInput" type="text" placeholder="Port Name">
+      <br>
+      <button id="addPortButton" type="submit">Add</button>
+    </fieldset>
+  </form>
   <div id="viewport">
     <div id="ports"></div>
     <div id="ship"></div>
-    <button id="sailbutton">Set Sail!</button>
+    <button id="sailButton">Set Sail!</button>
   </div>
   <script src="src/controller.js"></script>
   <script src="src/Port.js"></script>
   <script src="src/Itinerary.js"></script>
   <script src="src/Ship.js"></script>
   <script>
-    const itinerary = new Itinerary([
-      new Port('New York City'),
-      new Port('Grand Turk'),
-      new Port('San Juan'),
-      new Port('Amber Cove')
-    ]);
+    const itinerary = new Itinerary([]);
     const ship = new Ship(itinerary);
     const controller = new Controller(ship);
     controller.renderPorts(itinerary.ports);

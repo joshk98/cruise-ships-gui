@@ -3,8 +3,14 @@
     constructor(ship) {
       this.ship = ship;
       this.initialiseSea();
-      document.querySelector('#sailbutton').addEventListener('click', () => {
+      document.querySelector('#sailButton').addEventListener('click', () => {
         this.setSail();
+      });
+      document.querySelector('#addPortButton').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const portName = document.querySelector('#portNameInput').value;
+        this.addPort(portName);
+        document.querySelector('#portNameInput').value = '';
       });
     }
 
@@ -18,6 +24,12 @@
         document.querySelector('#viewport').style.backgroundImage = `url('${backgrounds[backgroundIndex % backgrounds.length]}')`;
         backgroundIndex += 1;
       }, 1000);
+    }
+
+    addPort(portName) {
+      const port = new Port(portName);
+      this.ship.itinerary.ports.push(port);
+      this.renderPorts(this.ship.itinerary.ports);
     }
 
     renderPorts(ports) {

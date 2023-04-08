@@ -31,7 +31,10 @@
   <script src="src/Itinerary.js"></script>
   <script src="src/Ship.js"></script>
   <script>
-    const itinerary = new Itinerary([]);
+    const itinerary = new Itinerary([
+      new Port('NYC'),
+      new Port('LA')
+    ]);
     const ship = new Ship(itinerary);
     const controller = new Controller(ship);
     controller.renderPorts(itinerary.ports);

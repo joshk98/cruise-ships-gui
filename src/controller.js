@@ -6,7 +6,7 @@
       document.querySelector('#sailButton').addEventListener('click', () => {
         this.setSail();
       });
-      // document.querySelector('#addPortForm').addEventListener('submit', (event) => {
+      // document.querySelector('#addPortButton').addEventListener('click', (event) => {
       //   event.preventDefault();
       //   const portName = document.querySelector('#portNameInput').value;
       //   this.addPort(portName);

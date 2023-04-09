@@ -6,12 +6,9 @@
       document.querySelector('#sailButton').addEventListener('click', () => {
         this.setSail();
       });
-      // document.querySelector('#addPortButton').addEventListener('click', (event) => {
-      //   event.preventDefault();
-      //   const portName = document.querySelector('#portNameInput').value;
-      //   this.addPort(portName);
-      //   document.querySelector('#portNameInput').value = '';
-      // });
+      document.querySelector('#addPortButton').addEventListener('click', () => {
+        this.addPort();
+      });
     }
 
     initialiseSea() {
@@ -26,15 +23,12 @@
       }, 1000);
     }
 
-    // addPort(portName) {
-    //   const port = new Port(portName);
-    //   this.ship.itinerary.ports.push(port);
-    //   this.renderPorts(this.ship.itinerary.ports);
-    // }
-
     renderPorts(ports) {
       const portsElement = document.querySelector('#ports');
       portsElement.style.width = '0px';
+      while (portsElement.firstChild) {
+        portsElement.removeChild(portsElement.firstChild);
+      }
       ports.forEach((port, index) => {
         const newPortElement = document.createElement('div');
         newPortElement.className = 'port';
@@ -93,8 +87,21 @@
     headsUp() {
       const headsUp = document.querySelector('#headsUp');
       const currentPort = this.ship.currentPort.name;
-      const nextPort = this.ship.nextPort.name || 'End of the line!';
+      const nextPort = this.ship.itinerary.ports[this.ship.itinerary.ports.indexOf(this.ship.currentPort) + 1]?.name ?? 'End of the line!';
       headsUp.innerHTML = `Current Port: ${currentPort}<br>Next Port: ${nextPort}`;
+    }
+
+    addPort() {
+      const ship = this.ship
+      const portName = document.getElementById("portNameInput").value;
+      const port = new Port(portName);
+      ship.itinerary.ports.push(port);
+      if (!ship.currentPort) {
+        ship.currentPort = ship.itinerary.ports[0];
+        ship.currentPort.addShip(ship);
+      }
+      this.renderPorts(ship.itinerary.ports);
+      this.renderShip();
     }
   }
 

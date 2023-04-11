@@ -98,7 +98,7 @@
         alert("Please enter a valid port name.");
         return;
       }
-      const portExists = ship.itinerary.ports.some(port => port.name.toLowerCase === portName.toLowerCase);
+      const portExists = ship.itinerary.ports.some(port => port.name.toLowerCase() === portName.toLowerCase());
       if (portExists) {
         alert("This port already exists in the itinerary.");
         return;

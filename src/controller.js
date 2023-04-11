@@ -93,7 +93,16 @@
 
     addPort() {
       const ship = this.ship
-      const portName = document.getElementById("portNameInput").value;
+      const portName = document.getElementById("portNameInput").value.trim();
+      if (!portName) {
+        alert("Please enter a valid port name.");
+        return;
+      }
+      const portExists = ship.itinerary.ports.some(port => port.name.toLowerCase === portName.toLowerCase);
+      if (portExists) {
+        alert("This port already exists in the itinerary.");
+        return;
+      }
       const port = new Port(portName);
       ship.itinerary.ports.push(port);
       if (!ship.currentPort) {
@@ -102,6 +111,7 @@
       }
       this.renderPorts(ship.itinerary.ports);
       this.renderShip();
+      document.getElementById("portNameInput").value = '';
     }
   }
 

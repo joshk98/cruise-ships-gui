@@ -1,71 +1,11 @@
-<h1>Cruise Ships</h1>
+<h1>Cruise Ships GUI</h1>
 
-This program simulates a cruise ship. It includes three classes: Port, Ship, and Itinerary. The Port class represents a port, with the ability to add and remove ships. The Ship class represents a ship, which can set sail from a port and dock at another port. The Itinerary class represents an itinerary, which is a list of ports that the ship visits.
+A JavaScript project has been developed to simulate the movement of a cruise ship as it travels between various ports. It builds upon the Cruise Ships project and offers users an engaging interface to add ports to a ship's itinerary and embark on a voyage.
 
-<h2>Installation</h2>
+<h2>How to run the simulation<h2>
 
-To use this program, you must have Node.js installed on your machine.
+To run the simulation, open the HTML file in a web browser. You can add new ports by entering a name in the input field and clicking the "Add Port" button. Once you have added at least two ports, you can click the "Sail" button to start the simulation. The ship will move gradually towards the next port, and the headsUp element will display the name of the current port and the next port. If you reach the end of the itinerary, a message will be displayed on the simulation viewport.
 
-Clone the repository from GitHub:
+<h2>Credits</h2>
 
-    git clone https://github.com/[USERNAME]/cruise-ships.git
-
-Navigate to the cruise-ships directory:
-
-    cd cruise-ships
-
-Install the dependencies:
-
-    npm install
-
-Run the tests:
-
-    npm test
-
-<h2>Usage</h2>
-
-To use this program, you can create instances of the Port, Ship, and Itinerary classes in your own code.
-
-<h3>Port</h3>
-
-    const Port = require('./src/Port.js');
-
-    const port = new Port('Dover');
-
-    // Add a ship to the port
-    const ship = {};
-    port.addShip(ship);
-
-    // Remove a ship from the port
-    port.removeShip(ship);
-
-<h3>Ship</h3>
-
-    const Ship = require('./src/Ship.js');
-    const Itinerary = require('./src/Itinerary.js');
-
-    const dover = new Port('Dover');
-    const calais = new Port('Calais');
-    const itinerary = new Itinerary([dover, calais]);
-
-    const ship = new Ship(itinerary);
-
-    // Set sail from the current port
-    ship.setSail();
-
-    // Dock at the next port in the itinerary
-    ship.dock();
-
-<h3>Itinerary</h3>
-
-    const Itinerary = require('./src/Itinerary.js');
-    const Port = require('./src/Port.js');
-
-    const dover = new Port('Dover');
-    const calais = new Port('Calais');
-
-    const itinerary = new Itinerary([dover, calais]);
-
-<h2>Contributing</h2>
-
-This program was created as part of a coding challenge, and is not currently accepting contributions.
+This program was created by Joshua Kuhn as part of a coding challenge for Command Shift.

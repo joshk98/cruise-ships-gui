@@ -4,7 +4,6 @@
       this.itinerary = itinerary;
       this.currentPort = itinerary.ports[0];
       this.previousPort = null;
-      if (this.currentPort) this.currentPort.addShip(this);
     }
 
     setSail() {

@@ -59,7 +59,7 @@ body {
 }
 
 #message {
-  padding: 10px 20px;
+  padding: 10px 0px;
   font-family: 'VT323', monospace;
   position: sticky;
   margin-top: 100px;
@@ -68,6 +68,7 @@ body {
   left: 0;
   border-top: 4px solid black;
   background-color: white;
+  text-align: center;
 }
 
 #headsUp {

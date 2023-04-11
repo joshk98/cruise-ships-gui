@@ -3,15 +3,13 @@
 Cruise Ships GUI is a JavaScript project that simulates the movement of a cruise ship as it travels between different ports. It is built upon the Cruise Ships project, and it provides users with an interactive user interface to add ports to a ship's itinerary and set sail.
 
 <h2>Features</h2>
-
-Allows users to add new ports to the itinerary.
-Displays the current and next port in the "heads-up" display.
-
-Animates the ship moving between ports.
-
-Changes the background image of the viewport to simulate the appearance of the sea.
-
-Displays a message when the ship departs or arrives at a port.
+<ul>
+  <li>Allows users to add new ports to the itinerary.</li>
+  <li>Displays the current and next port in the "heads-up" display.</li>
+  <li>Animates the ship moving between ports.</li>
+  <li>Changes the background image of the viewport to simulate the appearance of the sea.</li>
+  <li>Displays a message when the ship departs or arrives at a port.</li>
+</ul>
 
 <h2>How to run the simulation</h2>
 

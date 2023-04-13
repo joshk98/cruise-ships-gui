@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cruise Ships</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"></head>
-<body>
-  <div id="headsUp"></div>
-  <form id="addPortForm">
-    <fieldset>
-      <label for="portNameInput">Add Port</label>
-      <br>
-      <input id="portNameInput" type="text" placeholder="Port Name">
-      <br>
-      <button id="addPortButton" type="button">Add</button>
-    </fieldset>
-  </form>
-  <div id="viewport">
-    <div id="ports"></div>
-    <div id="ship"></div>
-    <button id="sailButton">Set Sail!</button>
-  </div>
-  <script src="src/controller.js"></script>
-  <script src="src/Itinerary.js"></script>
-  <script src="src/Port.js"></script>
-  <script src="src/Ship.js"></script>
-  <script>
-    const itinerary = new Itinerary([]);
-    const ship = new Ship(itinerary);
-    const controller = new Controller(ship);
-    controller.renderShip();
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cruise Ships</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="headsUp"></div>
+    <form id="addPortForm">
+      <fieldset>
+        <label for="portNameInput">Add Port</label>
+        <input id="portNameInput" type="text" placeholder="Port Name" />
+        <button id="addPortButton" type="button">Add</button>
+      </fieldset>
+    </form>
+    <div id="viewport">
+      <div id="ports"></div>
+      <div id="ship"></div>
+      <button id="sailButton">Set Sail!</button>
+    </div>
+    <script src="src/Controller.js"></script>
+    <script src="src/Itinerary.js"></script>
+    <script src="src/Port.js"></script>
+    <script src="src/Ship.js"></script>
+    <script>
+      const itinerary = new Itinerary([]);
+      const ship = new Ship(itinerary);
+      const controller = new Controller(ship);
+      controller.renderShip();
+    </script>
+  </body>
 </html>
